@@ -11,13 +11,11 @@ class Commander
   def execute(input)
     if input.start_with?("PLACE")
       PlaceCommand.new(input,@robot).execute
-    elsif input.start_with?("MOVE")
+    elsif input =~ /^MOVE$/
       MoveCommand.new(@robot).execute
-    elsif input.start_with?("LEFT","RIGHT")
+    elsif input =~ /^LEFT$/ || input =~ /^RIGHT$/
       RotateCommand.new(input,@robot).execute
-    elsif input.start_with?("MOVE")
-      MoveCommand.new(@robot).execute
-    elsif input.start_with?("REPORT")
+    elsif input =~ /^REPORT$/
       ReportCommand.new(@robot).execute
     else
       command_error
