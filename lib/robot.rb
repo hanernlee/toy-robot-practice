@@ -7,7 +7,8 @@ class Robot
 
   def report
     if placed?
-      puts @current_position.to_string
+      puts @current_position.pretty_string
+      return @current_position.pretty_string
     else
       place_error
     end

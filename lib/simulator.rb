@@ -7,15 +7,12 @@ class Simulator
     @table = Table.new
     @robot = Robot.new
     @commander = Commander.new(@robot)
-    run_simulator
   end
-
-  private
 
   def run_simulator
     loop do
       puts "Please enter in a command"
-      input = gets.chomp.upcase
+      input = STDIN.gets.chomp.upcase
       break if input == "Q"
       @commander.execute(input)
     end
