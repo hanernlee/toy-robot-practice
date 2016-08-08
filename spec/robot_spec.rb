@@ -7,16 +7,18 @@ require 'constraint'
 require 'compass'
 require 'place_command'
 require 'report_command'
+require 'move_command'
+require 'rotate_command'
 
 describe Robot do
   let(:robot) { Robot.new }
 
-  describe 'valid #place' do
+  describe '#place' do
     before do
       PlaceCommand.new('PLACE 2,2,NORTH',robot).execute
     end
 
-    context 'valid position' do
+    context 'valid place position' do
       let (:position) { Position.new(2,2,'NORTH') }
 
       it "places robot at valid position" do
@@ -25,7 +27,7 @@ describe Robot do
     end
   end
 
-  describe 'invalid #place' do
+  describe 'invalid place position' do
     before do
       PlaceCommand.new('PLACE 8,8,NORTH',robot).execute
     end
@@ -44,10 +46,57 @@ describe Robot do
       PlaceCommand.new('PLACE 2,2,EAST',robot).execute
     end
 
-    context 'before place'
+    context 'report positions of robot'
       it 'reports current position of robot' do
         expect(robot.report). to eq '2,2,EAST'
       end
   end
 
+  describe '#move' do
+    context 'when robot placed on table' do
+      it 'lets ROBOT move NORTH' do
+        PlaceCommand.new('PLACE 0,0,NORTH',robot).execute
+        MoveCommand.new(robot).execute
+        expect(robot.report).to eq('0,1,NORTH')
+      end
+
+      it 'lets ROBOT move SOUTH' do
+        PlaceCommand.new('PLACE 0,2,SOUTH',robot).execute
+        MoveCommand.new(robot).execute
+        expect(robot.report).to eq('0,1,SOUTH')
+      end
+
+      it 'lets ROBOT move EAST' do
+        PlaceCommand.new('PLACE 0,0,EAST',robot).execute
+        MoveCommand.new(robot).execute
+        expect(robot.report).to eq('1,0,EAST')
+      end
+
+      it 'lets ROBOT move WEST' do
+        PlaceCommand.new('PLACE 1,0,WEST',robot).execute
+        MoveCommand.new(robot).execute
+        expect(robot.report).to eq('0,0,WEST')
+      end
+    end
+  end
+
+  describe '#rotate' do
+    context 'when robot placed on table' do
+      before do
+        PlaceCommand.new('PLACE 0,0,NORTH',robot).execute
+      end
+
+      it 'lets ROBOT rotate left' do
+        input = 'LEFT'
+        RotateCommand.new(input,robot).execute
+        expect(robot.report).to eq('0,0,WEST')
+      end
+
+      it 'lets ROBOT rotate right' do
+        input = 'RIGHT'
+        RotateCommand.new(input,robot).execute
+        expect(robot.report).to eq('0,0,EAST')
+      end
+    end
+  end
 end

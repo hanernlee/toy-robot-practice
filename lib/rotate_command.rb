@@ -25,6 +25,6 @@ class RotateCommand
     end
 
     def input_rotate_left?
-      @input.start_with?("LEFT")
+      @input =~ /^LEFT$/
     end
 end
