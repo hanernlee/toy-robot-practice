@@ -19,11 +19,12 @@ class PlaceCommand
     end
   end
 
-  def valid_placement?
-    constraint.valid_place_parameters?
-  end
 
   private
+
+    def valid_placement?
+      constraint.valid_place_parameters?
+    end
 
     def constraint
       constraint = Constraint.new(@x_coordinate, @y_coordinate, @direction)
@@ -36,5 +37,6 @@ class PlaceCommand
     def error_message
       puts "Sorry the PLACE command format is invalid or out of bounds!"
       puts "Try 'PLACE 0,0,NORTH'"
+      return false
     end
 end

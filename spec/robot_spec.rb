@@ -1,4 +1,3 @@
-require 'pry'
 require 'spec_helper'
 require 'position'
 require 'robot'
@@ -48,7 +47,7 @@ describe Robot do
 
     context 'report positions of robot'
       it 'reports current position of robot' do
-        expect(robot.report). to eq '2,2,EAST'
+        expect(robot.report).to eq('2,2,EAST')
       end
   end
 

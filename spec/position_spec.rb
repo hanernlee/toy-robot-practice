@@ -1,7 +1,6 @@
 require 'position'
 
 describe Position do
-
   context 'when Robot is placed' do
     let(:position) {Position.new(1,1,'SOUTH')}
 

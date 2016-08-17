@@ -20,5 +20,6 @@ class Robot
 
   def place_error
     puts "Sorry Robot not placed yet, please begin with a PLACE command"
+    return false
   end
 end

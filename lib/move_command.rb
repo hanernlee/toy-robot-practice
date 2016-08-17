@@ -56,9 +56,11 @@ class MoveCommand
 
     def move_error
       puts "Sorry this move is out of bounds"
+      return false
     end
 
     def place_error
       puts "Sorry Robot not placed yet, please begin with a PLACE command"
+      return false
     end
 end
