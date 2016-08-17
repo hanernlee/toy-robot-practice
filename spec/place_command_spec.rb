@@ -5,14 +5,14 @@ describe PlaceCommand do
 
   context 'invalid format' do
     it 'does not register place command' do
-      place = PlaceCommand.new('PLACEEEE 2,2,EAST',robot).execute
+      place = PlaceCommand.new('PLACEEE 2,2,NORHHHH',robot).execute
       expect(place).to eq(false)
     end
   end
 
   context 'out of bounds placement' do
     it 'does not register place command' do
-      place = PlaceCommand.new('PLACE 9,9,NORTH',robot).execute
+      place = PlaceCommand.new('PLACE 10,10,NORTH',robot).execute
       expect(place).to eq(false)
     end
   end

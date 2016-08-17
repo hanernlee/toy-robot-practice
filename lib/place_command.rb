@@ -5,9 +5,9 @@ require_relative 'robot'
 class PlaceCommand
   def initialize(input,robot)
     format_input = input.gsub("PLACE ","")
-    @x_coordinate = format_input.slice(0).to_i
-    @y_coordinate = format_input.slice(2).to_i
-    @direction = format_input.slice(4..-1)
+    @x_coordinate = format_input.scan(/\d+/)[0].to_i
+    @y_coordinate = format_input.scan(/\d+/)[1].to_i
+    @direction = format_input.scan(/NORTH|SOUTH|EAST|WEST/)[0]
     @robot = robot
   end
 
@@ -18,7 +18,6 @@ class PlaceCommand
       error_message
     end
   end
-
 
   private
 
