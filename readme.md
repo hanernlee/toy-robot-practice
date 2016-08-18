@@ -16,12 +16,20 @@ To start the app make sure you are in the directory of the folder and in your te
 ```
 $ ruby bin/main.rb
 ```
-Begin by placing the robot. To exit the app hit 'q' and press `ENTER`
+Begin by placing the robot. To exit the app hit `q` and press `ENTER`
 ## Testing
 RSpec is implemented for testing code quality. To run tests, run the below command.
 ```
 $ rspec
 ```
+## Design & Scaleability
+
+*In Progress*
+
+## Thought Process
+
+*In Progress*
+
 ## Specification
 
 ### Description
@@ -77,11 +85,3 @@ c)
 `MOVE`
 `REPORT`
 Output: `3,3,NORTH`
-
-## Design & Scaleability
-
-*In Progress*
-
-## Thought Process
-
-*In Progress*
