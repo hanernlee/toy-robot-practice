@@ -5,7 +5,7 @@
 The application is a simulation of a toy robot moving on a square tabletop of dimension 5 x 5 units with no other obstructions on the table surface.
 
 ## Installation
-Please note that you must have at least Ruby version 2.3.0 to run this app. Clone or Download this repository and cd into the directory and then run the below command in terminal.
+Please note that you must have at least Ruby version 2.3.0 to run this app. Clone or Download this repository and `$ cd` into the directory and then run the below command in terminal.
   ```
   $ bundle install
   ```
