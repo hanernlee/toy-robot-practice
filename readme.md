@@ -6,19 +6,21 @@ The application is a simulation of a toy robot moving on a square tabletop of di
 
 ## Installation
 Please note that you must have at least Ruby version 2.3.0 to run this app. Clone or Download this repository and cd into the directory and then run the below command in terminal.
-
+  ```
   $ bundle install
+  ```
+
 
 ## Usage
 To start the app make sure you are in the directory of the folder and in your terminal run the below command.
-
+  ```
   $ ruby bin/main.rb
-
+  ```
 ## Testing
 RSpec is implemented for testing code quality. To run tests, run the below command.
-
+  ```
   $ rspec
-
+  ```
 ## Specification
 
 ### Description
@@ -74,6 +76,10 @@ c)
 `MOVE`
 `REPORT`
 Output: `3,3,NORTH`
+
+### Design & Scaleability
+
+*In Progress*
 
 ## Thought Process
 
