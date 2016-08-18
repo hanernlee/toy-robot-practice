@@ -16,7 +16,7 @@ To start the app make sure you are in the directory of the folder and in your te
 ```
 $ ruby bin/main.rb
 ```
-Begin by placing the robot. To exit the app hit 'q' and press `ENTER`
+Begin with the respective commands. To exit the app hit 'q' and press `ENTER`
 ## Testing
 RSpec is implemented for testing code quality. To run tests, run the below command.
 ```
