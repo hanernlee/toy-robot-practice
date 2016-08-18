@@ -5,7 +5,7 @@ describe MoveCommand do
   let(:move) {MoveCommand.new(robot)}
 
   context 'when Robot is not placed' do
-    it 'does not register move command' do
+    it 'does not register MoveCommand' do
       expect(move.execute).to eq(false)
     end
   end

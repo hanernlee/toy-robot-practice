@@ -1,4 +1,4 @@
-require_relative './lib/simulator'
+require_relative '../lib/simulator'
 
 puts "Welcome to Toy Robot Simulator"
 

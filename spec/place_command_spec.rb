@@ -4,7 +4,7 @@ describe PlaceCommand do
   let(:robot) { Robot.new }
 
   context 'invalid format' do
-    it 'does not register place command' do
+    it 'does not register PlaceCommand' do
       place = PlaceCommand.new('PLACEEE 2,2,NORHHHH',robot).execute
       expect(place).to eq(false)
     end

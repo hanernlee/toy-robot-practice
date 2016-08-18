@@ -7,10 +7,14 @@ class RotateCommand
   end
 
   def execute
-    if input_rotate_left?
-      rotate_left
+    if @robot.placed?
+      if input_rotate_left?
+        rotate_left
+      else
+        rotate_right
+      end
     else
-      rotate_right
+      place_error
     end
   end
 
@@ -26,5 +30,10 @@ class RotateCommand
 
     def input_rotate_left?
       @input =~ /^LEFT$/
+    end
+
+    def place_error
+      puts "Sorry Robot not placed yet, please begin with a PLACE command"
+      return false
     end
 end

@@ -13,12 +13,12 @@ describe Robot do
   let(:robot) { Robot.new }
 
   describe '#place' do
-    before do
-      PlaceCommand.new('PLACE 2,2,NORTH',robot).execute
-    end
-
     context 'valid place position' do
       let (:position) { Position.new(2,2,'NORTH') }
+
+      before do
+        PlaceCommand.new('PLACE 2,2,NORTH',robot).execute
+      end
 
       it "places robot at valid position" do
         expect(robot.current_position).to eq position
@@ -27,12 +27,12 @@ describe Robot do
   end
 
   describe 'invalid place position' do
-    before do
-      PlaceCommand.new('PLACE 8,8,NORTH',robot).execute
-    end
-
     context 'invalid position' do
       let (:constraint) { Constraint.new(8,8,'NORTH') }
+
+      before do
+        PlaceCommand.new('PLACE 8,8,NORTH',robot).execute
+      end
 
       it "will not place robot at invalid position" do
           expect(constraint.valid_place_parameters?).to be false
@@ -41,11 +41,11 @@ describe Robot do
   end
 
   describe '#report' do
-    before do
-      PlaceCommand.new('PLACE 2,2,EAST',robot).execute
-    end
-
     context 'report positions of robot'
+      before do
+        PlaceCommand.new('PLACE 2,2,EAST',robot).execute
+      end
+
       it 'reports current position of robot' do
         expect(robot.report).to eq('2,2,EAST')
       end

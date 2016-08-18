@@ -5,7 +5,7 @@ describe ReportCommand do
   let(:report) {ReportCommand.new(robot)}
 
   context 'when Robot is not placed' do
-    it 'does not register report command' do
+    it 'does not register ReportCommand' do
       expect(report.execute).to eq(false)
     end
   end
