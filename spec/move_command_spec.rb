@@ -4,18 +4,7 @@ describe MoveCommand do
   let(:robot) { Robot.new }
   let(:move) {MoveCommand.new(robot)}
 
-  context 'when Robot is not placed' do
-    it 'does not register MoveCommand' do
-      expect(move.execute).to eq(false)
-    end
-  end
-
   context 'when Robot is placed' do
-    it 'does not allow invalid movement' do
-      PlaceCommand.new('PLACE 0,0,SOUTH',robot).execute
-      expect(move.execute).to eq(false)
-    end
-
     it 'allows valid NORTH movement' do
       PlaceCommand.new('PLACE 0,0,NORTH',robot).execute
       move.execute

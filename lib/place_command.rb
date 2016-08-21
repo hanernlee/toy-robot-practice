@@ -36,6 +36,5 @@ class PlaceCommand
     def error_message
       puts "Sorry the PLACE command format is invalid or out of bounds!"
       puts "Try 'PLACE 0,0,NORTH'"
-      return false
     end
 end

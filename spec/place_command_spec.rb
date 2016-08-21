@@ -3,20 +3,6 @@ require 'place_command'
 describe PlaceCommand do
   let(:robot) { Robot.new }
 
-  context 'invalid format' do
-    it 'does not register PlaceCommand' do
-      place = PlaceCommand.new('PLACEEE 2,2,NORHHHH',robot).execute
-      expect(place).to eq(false)
-    end
-  end
-
-  context 'out of bounds placement' do
-    it 'does not register place command' do
-      place = PlaceCommand.new('PLACE 10,10,NORTH',robot).execute
-      expect(place).to eq(false)
-    end
-  end
-
   context 'when Robot is not placed' do
     it 'places Robot on table' do
       PlaceCommand.new('PLACE 0,0,NORTH',robot).execute
