@@ -52,7 +52,7 @@ describe Robot do
   end
 
   describe '#move' do
-    context 'when robot placed on table' do
+    context 'when robot is placed' do
       it 'lets ROBOT move NORTH' do
         PlaceCommand.new('PLACE 0,0,NORTH',robot).execute
         MoveCommand.new(robot).execute
@@ -80,7 +80,7 @@ describe Robot do
   end
 
   describe '#rotate' do
-    context 'when robot placed on table' do
+    context 'when robot is placed' do
       before do
         PlaceCommand.new('PLACE 0,0,NORTH',robot).execute
       end

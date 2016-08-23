@@ -25,15 +25,15 @@ $ rspec
 
 ### Two Robots
 
-- The current app is designed in such a way where two Robots can be placed on the same ```Table``` at the same time. By separating the ```Commander```, ```Robot``` and ```Table``` classes there is less dependency between them allowing for this feature. This is possible by initialising a second ```Commander``` and ```Robot``` in the ```Simulator```.
+- The current app is designed in such a way where two Robots can be placed on the same ```Table``` at the same time. By separating the ```Commander```, ```Robot``` and ```Table``` Classes there is less dependency between them allowing for this feature. This is possible by initialising a second ```Commander``` and ```Robot``` in the ```Simulator```.
 
 ### Dynamic Table
 
-- The ```Table``` where the ```Robot``` moves on is designed dynamically where if no dimensions were specified, it will take on the default size of 5 x 5 units. By initialising a ```Table``` with different dimensions in the Simulator class (eg.```Table.new(8,9)```), the ```Robot``` will still move within that ```Table``` obeying the same commands and constraints.
+- The ```Table``` where the ```Robot``` moves on is designed dynamically where if no dimensions were specified, it will take on the default size of 5 x 5 units. By initialising a ```Table``` with different dimensions in the Simulator and Constraint Class (eg.```Table.new(8,9)```), the ```Robot``` will still move within that ```Table``` obeying the same commands and constraints.
 
 ### Compass / Directions
 
-- Initially there was a massive ```if```, ```else``` statement for the ```RotateCommand```. However, as these were cardinal directions, the code was refactorized to implement modular arithmetic.
+- Initially there was a massive ```if```/```else``` statement for the ```RotateCommand```. However, as these were cardinal directions, the code was refactorized to implement modular arithmetic:
 
 1. Get the **index** of current direction based on the ```COMPASS``` array.
 2. ```+``` or ```-``` the **index** in Step 1, depending on ```RIGHT``` or ```LEFT``` commands respectively.
