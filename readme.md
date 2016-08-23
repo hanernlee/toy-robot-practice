@@ -10,7 +10,6 @@ Please note that you must have Ruby installed to run this app. Clone or Download
 $ bundle install
 ```
 
-
 ## Usage
 To start the app make sure you are in the directory of the folder and in your terminal run the below command.
 ```
@@ -24,11 +23,38 @@ $ rspec
 ```
 ## Design & Scaleability
 
-*In Progress*
+### Two Robots
+
+- The current app is designed in such a way where two Robots can be placed on the same ```Table``` at the same time. By separating the ```Commander```, ```Robot``` and ```Table``` classes there is less dependency between them allowing for this feature. This is possible by initialising a second ```Commander``` and ```Robot``` in the ```Simulator```.
+
+### Dynamic Table
+
+- The ```Table``` where the ```Robot``` moves on is designed dynamically where if no dimensions were specified, it will take on the default size of 5 x 5 units. By initialising a ```Table``` with different dimensions in the Simulator class (eg.```Table.new(8,9)```), the ```Robot``` will still move within that ```Table``` obeying the same commands and constraints.
+
+### Compass / Directions
+
+- Initially there was a massive ```if```, ```else``` statement for the ```RotateCommand```. However, as these were cardinal directions, the code was refactorized to implement modular arithmetic.
+1) Get the **index** of current direction based on the ```COMPASS``` array.
+2) ```+``` or ```-``` the **index** in Step 1, depending on ```RIGHT``` or ```LEFT``` commands respectively.
+3) Modulo the new **index** by 4  to obtain the remainder which will provide the new direction based on the ```COMPASS``` array.
+```
+COMPASS = ["NORTH","EAST","SOUTH","WEST"]
+def rotate_left
+  @robot.current_position.direction = COMPASS[(COMPASS.index(@robot.current_position.direction) - 1) % 4]
+end
+
+def rotate_right
+  @robot.current_position.direction = COMPASS[(COMPASS.index(@robot.current_position.direction) + 1) % 4]
+end
+```
 
 ## Thought Process
 
-*In Progress*
+It was during a Rails Camp when I decided to attempt the Toy-Robot coding challenge. I had no idea how or where to even begin but started off with one giant Class which I didn't know back then, was really really bad practice.
+
+A Senior Ruby Developer was kind enough to guide me in the right direction and taught me the design principle for separation of concerns. The idea was to break features into distinct Classes so that each Class can address a separate concern, encouraging scalable and maintainable code.
+
+For someone new to programming, it was the most valuable concept I learnt. This concept not only made my code much cleaner and readable but it was also much easier to test the code using RSpec.
 
 ## Specification
 
