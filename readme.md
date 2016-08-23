@@ -34,9 +34,9 @@ $ rspec
 ### Compass / Directions
 
 - Initially there was a massive ```if```, ```else``` statement for the ```RotateCommand```. However, as these were cardinal directions, the code was refactorized to implement modular arithmetic.
-1) Get the **index** of current direction based on the ```COMPASS``` array.
-2) ```+``` or ```-``` the **index** in Step 1, depending on ```RIGHT``` or ```LEFT``` commands respectively.
-3) Modulo the new **index** by 4  to obtain the remainder which will provide the new direction based on the ```COMPASS``` array.
+- 1) Get the **index** of current direction based on the ```COMPASS``` array.
+- 2) ```+``` or ```-``` the **index** in Step 1, depending on ```RIGHT``` or ```LEFT``` commands respectively.
+- 3) Modulo the new **index** by 4  to obtain the remainder which will provide the new direction based on the ```COMPASS``` array.
 ```
 COMPASS = ["NORTH","EAST","SOUTH","WEST"]
 def rotate_left
