@@ -1,1 +1,0 @@
-COMPASS = ["NORTH","EAST","SOUTH","WEST"]

@@ -1,4 +1,4 @@
-require_relative 'compass'
+COMPASS = ["NORTH","EAST","SOUTH","WEST"]
 
 class RotateCommand
   def initialize(input,robot)
